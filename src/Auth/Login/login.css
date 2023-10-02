@@ -1,0 +1,95 @@
+.container {
+    background-color: #F8F8F8;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .content {
+    width: 369px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container .content .title {
+    width: 100%;
+    font-size: 40px;
+    color: #1795A8;
+    text-align: center;
+    font-weight: 700;
+    line-height: 48.41px;
+}
+
+.input_container {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+.input_container input {
+    width: 100%;
+    height: 49px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    color: #DFE3EE;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 15.73px;
+    border: 2px solid #DFE3EE;
+    border-radius: 5px;
+    padding-left: 20px;
+    
+}
+input::placeholder {
+    color: #DFE3EE; 
+  }
+  input:focus {
+    outline: none;
+  }
+label {
+    color: #1795A8;
+    font-size: 14px;
+    line-height: 16.94px;
+    font-weight: 700;
+
+}
+
+.container_button button{
+    width: 100%;
+    height: 49px;
+    border: none;
+    background-color: #1795A8;
+    border-radius: 5px;
+    color: #FCCF47;
+    font-size: 14;
+    line-height: 16.94px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.title_login{
+    width: 100%;
+    font-size: 24px;
+    color: #1795A8;
+    font-weight: 700;
+    line-height: 29.05x;
+}
+
+.subtitle_login{
+    font-size: 13px;
+    color: #FCCF47;
+    line-height: 15.73px;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}

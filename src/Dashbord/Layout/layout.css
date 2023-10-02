@@ -1,0 +1,112 @@
+.container_layout{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.content_navbar{
+    position: absolute;
+    width: 100%;
+    display: flex;
+}
+.content_navbar_second{
+    position: absolute;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    transition: all 1s ease;
+    display: flex;
+
+}
+.open{
+    width: 100px;
+    height: 70px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99999;
+}
+.open img{
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+.sidebar_close{
+    height: 100%;
+    width:  300px;
+    background-color: #1795A8;
+    position: fixed;
+    z-index: 2;
+    margin-left: -300px;
+    transition: all 1s ease;
+    
+}
+.sidebar_open{
+    height: 100%;
+    width:  300px;
+    background-color: #1795A8;
+    position: fixed;
+    z-index: 2;
+    margin-left: 0px;
+    transition: all 1s ease;
+    box-shadow: 0 2px 4px #1795A8;
+}
+
+.content_close{
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 125px;
+    box-sizing: border-box;
+}
+.content_close img{
+   cursor: pointer;
+   width: 30px;
+   height: 30px;
+}
+
+.content_menu{
+    top: 125px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu_text{
+    width: 60%;
+    padding: 25px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+.menu_text_back{
+    background-color: #FCCF47;
+}
+
+.menu_text:hover{
+    background-color: #FCCF47;
+}
+
+.container_component_open{
+    padding-top: 125px;
+    width: calc(100% - 300px);
+  height: 100%;
+  /* background-color: red; */
+  margin-left:300px ;
+  transition: all 1s ease;
+}
+
+.container_component_close{
+    height: 100%;
+    width:  100%;
+    padding-top: 125px;
+    transition: all 1s ease;
+    
+}
