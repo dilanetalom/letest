@@ -29,11 +29,11 @@ function Student() {
             matricule: "SE0003",
             name: "Jean Doe",
             town: "Bamenda",
-            date: "1998/02/02"
+            date: "2008/02/02"
         },
     ])
 
-
+// ****************search*****************/
     const [searchTerm, setSearchTerm] = useState('');
 
 
@@ -48,8 +48,93 @@ function Student() {
       const searchs = ()=>{
         setElement(filteredData);
       }
+
+// **********************************
+
+// ************pagination******************/
+
+      const [currentPage, setCurrentPage] = useState(1);
+      const itemsPerPage = 3;
+      const indexOfLastItem = currentPage * itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+      const currentItems = element.slice(indexOfFirstItem, indexOfLastItem);
+  
+      const goToPreviousPage = () => {
+          setCurrentPage(currentPage - 1);
+      };
+  
+      const goToNextPage = () => {
+          setCurrentPage(currentPage + 1);
+      };
+
+// **********************************
+
+// *****************trie********************/
+
+      const triename = () => {
+        const sortedData = [...element].sort((a, b) => a.name.localeCompare(b.name));
+        setElement(sortedData);
+    };
+    const trietown = () => {
+        const sortedData = [...element].sort((a, b) => a.town.localeCompare(b.town));
+        setElement(sortedData);
+    };
+    const triebirt = () => {
+        const sortedData = [...element].sort((a, b) => a.date.localeCompare(b.date ));
+        setElement(sortedData);
+    };
+
+  // **********************************
+
+
+
+  const [isOpen, setIsOpen] = useState(false);
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+  const [formValues, setFormValues] = useState({
+    number: '',
+    code: '',
+    name: '',
+    duration: '',
+});
+
+
+const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues({ ...formValues, [name]: value });
+};
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const newElement = {
+        number: formValues.number,
+        code: formValues.code,
+        name: formValues.name,
+        duration: formValues.duration,
+    };
+
+    setElement([...element, newElement]);
+
+    setFormValues({
+        number: '',
+        code: '',
+        name: '',
+        duration: '',
+    });
+};
+   //   ********************************
+
+
     return (
         <Layout>
+            <div>
             <div className='container_element'>
                 <div className='pathname'>{window.location.pathname}</div>
                 <div className='content_table'>
@@ -59,11 +144,11 @@ function Student() {
                          onChange={handleSearchChange}
                          value={searchTerm}
                         />
-                        <button>Search</button>
+                        <button onSubmit={searchs}>Search</button>
                     </div>
                     <div className='content_add_user'>
                         <span>Student</span>
-                        <img src={user} alt='' />
+                        <img src={user} alt=''onClick={openModal} />
                     </div>
                     <table>
                         <thead>
@@ -72,19 +157,19 @@ function Student() {
                                 <th>
                                    <div className='heade'>
                                    Name
-                                    <img src={icon} alt='' />
+                                    <img src={icon} alt=''onClick={triename} />
                                    </div>
                                 </th>
                                 <th>
                                     <div className='heade'>
                                     Town
-                                    <img src={icon} alt='' />
+                                    <img src={icon} alt=''onClick={trietown} />
                                     </div>
                                 </th>
                                 <th>
                                    <div className='heade'>
                                       Date of Birth
-                                    <img src={icon} alt='' />
+                                    <img src={icon} alt=''onClick={triebirt} />
                                    </div>
                                 </th>
                                 <th>
@@ -128,14 +213,75 @@ function Student() {
                     </table>
                     <div className='content_pagination'>
                         <ul class="pagination">
-                            <li class="pagination-item"><a href="#" class="pagination-link activeone">Prev</a></li>
-                            <li class="pagination-item"><a href="#" class="pagination-link">1</a></li>
-                            <li class="pagination-item"><a href="#" class="pagination-link">2</a></li>
-                            <li class="pagination-item"><a href="#" class="pagination-link">3</a></li>
-                            <li class="pagination-item"><a href="#" class="pagination-link activetwo">Next</a></li>
+                            <li class="pagination-item" onClick={goToPreviousPage}><a href="" class="pagination-link activeone">Prev</a></li>
+                            <li class="pagination-item"><a href="" class="pagination-link">1</a></li>
+                            <li class="pagination-item"><a href="" class="pagination-link">2</a></li>
+                            <li class="pagination-item"><a href="" class="pagination-link">3</a></li>
+                            <li class="pagination-item" onClick={goToNextPage}><a href="" class="pagination-link activetwo">Next</a></li>
                         </ul>
                     </div>
                 </div>
+            </div>
+
+
+
+            <div className='modal_couse'>
+
+{isOpen && (
+    <div className="modal">
+        <form className="modal-content" onSubmit={handleSubmit}>
+            <span className="close" onClick={closeModal}>&times;</span>
+            <h2>Add Student</h2>
+            <div>
+                <div className='input_container'>
+                    <label>Matricule</label>
+                    <input type="text"
+                        name='matricule'
+                        placeholder="exx:SEF20"
+                        value={formValues.matricule}
+                        onChange={handleInputChange}
+                    />
+
+                </div>
+                <div className='input_container'>
+                    <label>Town</label>
+                    <input type="text"
+                        name='town'
+                        placeholder="yaounde"
+                        value={formValues.town}
+                        onChange={handleInputChange}
+                    />
+
+                </div>
+                <div className='input_container'>
+                    <label>Name</label>
+                    <input type="text"
+                        name='dilane'
+                        placeholder="exx: analyse"
+                        value={formValues.name}
+                        onChange={handleInputChange}
+                    />
+
+                </div>
+                <div className='input_container'>
+                    <label>Date</label>
+                    <input type="date"
+                        name='date'
+                        placeholder="exx: 2020-12-2"
+                        value={formValues.date}
+                        onChange={handleInputChange}
+                    />
+
+                </div>
+
+            </div>
+            <div className='container_button'>
+                <button type="submit">Add </button>
+            </div>
+        </form>
+    </div>
+)}
+</div>
             </div>
         </Layout>
     )

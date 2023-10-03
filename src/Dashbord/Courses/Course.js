@@ -60,7 +60,7 @@ function Course() {
 
     );
 
-
+// ******************pagonation*****************
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 3;
     const indexOfLastItem = currentPage * itemsPerPage;
@@ -75,9 +75,9 @@ function Course() {
         setCurrentPage(currentPage + 1);
     };
 
+// **********************************************
 
-
-
+// ****************trie***************
     const triename = () => {
         const sortedData = [...element].sort((a, b) => a.name.localeCompare(b.name));
         setElement(sortedData);
@@ -90,9 +90,9 @@ function Course() {
         const sortedData = [...element].sort((a, b) => a.duration.localeCompare(b.duration));
         setElement(sortedData);
     };
+// ***********************************
 
-
-
+// ***********modal add************/
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = () => {
@@ -136,8 +136,9 @@ function Course() {
             duration: '',
         });
     };
+       //   ********************************
 
-
+// ****************search*****************/
     const [searchTerm, setSearchTerm] = useState('');
 
 
@@ -152,7 +153,7 @@ function Course() {
       const searchs = ()=>{
         setElement(filteredData);
       }
-      
+    //   ********************************
 
 
     return (
@@ -166,6 +167,7 @@ function Course() {
                         <div className='content_input'>
                             <img src={img} alt='' />
                             <input type='text' placeholder='Search Here'
+                            name=''
                              onChange={handleSearchChange}
                              value={searchTerm}
                             />

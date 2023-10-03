@@ -15,22 +15,22 @@ function Layout({children}) {
     {
       id: 1,
       text: " DASHBOARD",
-      lien:"/dashbord"
+      lien:"/Dashboard"
     },
     {
       id: 2,
       text: "STUDENTS",
-      lien:"/dashbord/student"
+      lien:"/Dashboard/Students"
     },
     {
       id: 3,
       text: "COURSES",
-      lien:"/dashbord/course"
+      lien:"/Dashboard/Courses"
     },
     {
       id: 4,
       text: "Asigned students",
-      lien:"/dashbord/asigned"
+      lien:"/Dashboard/Asigned"
     },
   ]
   return (
