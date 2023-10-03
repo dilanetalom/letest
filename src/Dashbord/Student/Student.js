@@ -114,19 +114,19 @@ const handleSubmit = (event) => {
     event.preventDefault();
 
     const newElement = {
-        number: formValues.number,
-        code: formValues.code,
+        matricule: formValues.matricule,
+        town: formValues.town,
         name: formValues.name,
-        duration: formValues.duration,
+        date: formValues.date,
     };
 
     setElement([...element, newElement]);
 
     setFormValues({
-        number: '',
-        code: '',
+        matricule: '',
+        town: '',
         name: '',
-        duration: '',
+        date: '',
     });
 };
    //   ********************************
